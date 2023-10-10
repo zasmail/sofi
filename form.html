@@ -137,13 +137,14 @@
         disable_sending: false,
         event_callback: function (err, eventType, group, request) {
           if (err) {
+            console.log
             // Something went wrong with sending the agreed event.
-            alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
+            // alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
           }
 
-          alert("You're all signed in!");
+          // alert("You're all signed in!");
           // window.location.reload(); // Superficially reload to reset the example.
-          window.location.href = 'https://www.sofi.com';
+          // window.location.href = 'https://www.sofi.com';
         }
       });
       // Use your actual _ps function and arguments here
