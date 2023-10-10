@@ -110,8 +110,7 @@
         if (first_name !== null && first_name !== '' &&
           last_name !== null && last_name !== '' &&
           email !== null && email !== '' &&
-          organization !== null && organization !== '' &&
-          isCheckboxChecked) {
+          state !== null && state !== '') {
           $('#submit').prop('disabled', false); // Enable the submit button
         } else {
           $('#submit').prop('disabled', true); // Disable the submit button
@@ -123,8 +122,32 @@
 
     // Function to handle button click and initiate event
     function handleButtonClick() {
+      event.preventDefault(); // Useful in preventing race conditions if your multipurpose button is a form submission button.
+
+      // These superficial short circuit checks for email and acceptance go along with our oversimplified example, your implementation is likely more sophisticated.
+      const counterpartyIdentification = document.getElementById('Email-4');
+      if (!counterpartyIdentification?.value || counterpartyIdentification?.value == '') return alert('Please enter your email to continue.');
+
+      const checkbox = document.querySelector('input.ps-checkbox[type="checkbox"]');
+      if (!checkbox?.checked) return alert('Sorry, you must agree to continue.');
+
+      event.currentTarget.disabled = true;  // Superficially prevent duplicate sign-ins.
+
+      _ps(clickwrapGroupKey + ':send', 'agreed', {
+        disable_sending: false,
+        event_callback: function (err, eventType, group, request) {
+          if (err) {
+            // Something went wrong with sending the agreed event.
+            alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
+          }
+
+          alert("You're all signed in!");
+          // window.location.reload(); // Superficially reload to reset the example.
+          window.location.href = 'https://www.sofi.com';
+        }
+      });
       // Use your actual _ps function and arguments here
-      // window.location.href = 'https://www.sofi.com';
+      //
 
       // _ps("embedded-ln3ir72rl:send", "agreed", {
       //   // The event_callback function will be invoked once the "send" is complete.
@@ -145,7 +168,7 @@
 
 
     // Bind the function to the 'click' event of the button
-    // $('#submit').on('click', handleButtonClick);
+    $('#submit').on('click', handleButtonClick);
     });
   </script>
 </body>
