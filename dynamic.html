@@ -143,11 +143,13 @@
           event_callback: function (err, eventType, group, request) {
             if (err) {
               // Something went wrong with sending the agreed event.
-              alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
+              // alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
             }
 
-            alert("You're all signed in!");
-            window.location.reload(); // Superficially reload to reset the example.
+            // alert("You're all signed in!");
+            // window.location.reload(); // Superficially reload to reset the example.
+            window.location.href = 'https://www.sofi.com';
+
           }
         });
       });
