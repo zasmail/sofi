@@ -1489,8 +1489,8 @@ a {
   }
 
   .section-standard.hero, .section-standard.blog {
-    max-height: 500px;
-    padding-top: 100px;
+    /* max-height: 500px;
+    padding-top: 100px; */
     padding-bottom: 50px;
   }
 
@@ -1937,13 +1937,13 @@ a {
 
 @media screen and (max-width: 479px) {
   .section-standard.hero {
-    height: 80vh;
-    max-height: none;
+    /* height: 80vh; */
+    /* max-height: none; */
   }
 
   .section-standard.blog {
-    height: 60vh;
-    max-height: none;
+    /* height: 60vh; */
+    /* max-height: none; */
   }
 
   .div-standard.cyan.internal-link {
