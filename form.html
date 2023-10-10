@@ -89,12 +89,56 @@
     const clickwrapGroupKey = 'embedded-23ss6xwpo';
     // First, load the JavaScript library, Site Access ID, and Clickwrap Group key.
 
-    const clickwrapContainerId = 'iccw--clickwrap-container';
+    // const clickwrapContainerId = 'iccw--clickwrap-container';
 
-    _ps('create', siteAccessId);  // Second, tell the library which Site to use.
-    _ps('load', clickwrapGroupKey, {  // Third, tell the library which Clickwrap Group to load.
-      container_selector: clickwrapContainerId,  // Fourth, tell the library where to render the Clickwrap Group.
-    });
+    // _ps('create', siteAccessId);  // Second, tell the library which Site to use.
+    // _ps('load', clickwrapGroupKey, {  // Third, tell the library which Clickwrap Group to load.
+    //   container_selector: clickwrapContainerId,  // Fourth, tell the library where to render the Clickwrap Group.
+    // });
+    // Load the JavaScript library, Site Access ID, and Clickwrap Group key.
+
+      const clickwrapContainerId = 'iccw--clickwrap-container';
+      const counterpartyIdentificationInputId = 'Email-4';
+      const idOfMultipurposeButton = 'submit';  // This assumes the `id` of your html element representing your multipurpose button is "signin-btn". Your actual implementation will likely differ.
+
+      _ps('create', siteAccessId); // Tell the library to use a specific Clickwrap Group
+      _ps('load', clickwrapGroupKey, {
+        container_selector: clickwrapContainerId,
+        signer_id_selector: counterpartyIdentificationInputId,
+      });
+
+      // Wait until the DOM is ready (your implementation may not need to wait for the DOM to be ready).
+      document.addEventListener('DOMContentLoaded', function () {
+
+        // Locate your multi-purpose button and add an event listener.
+        document.getElementById(idOfMultipurposeButton).addEventListener('click', function (event) {
+          event.preventDefault(); // Useful in preventing race conditions if your multipurpose button is a form submission button.
+          // These superficial short circuit checks for email and acceptance go along with our oversimplified example. Your implementation is likely more sophisticated.
+          const counterpartyIdentification = document.getElementById(counterpartyIdentificationInputId);
+          if (!counterpartyIdentification?.value || counterpartyIdentification?.value == '') return alert('Please enter your email to continue.');
+
+          const checkbox = document.querySelector('input.ps-checkbox[type="checkbox"]');
+          if (!checkbox?.checked) return alert('Sorry, you must agree to continue.');
+
+          event.currentTarget.disabled = true;  // Superficially prevent duplicate sign-ins.
+
+          _ps(clickwrapGroupKey + ':send', 'agreed', {
+            disable_sending: false,
+            event_callback: function (err, eventType, group, request) {
+              if (err) {
+                // Something went wrong with sending the agreed event.
+                console.log(err);
+                // debugger;
+                alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
+              }
+
+              alert("You're all signed in!");
+              // window.location.reload(); // Superficially reload to reset the example.
+            }
+          });
+        });
+
+      }, false);
 
     // Use the "jQuery" identifier instead of "$"
     jQuery(document).ready(function ($) {
@@ -121,55 +165,55 @@
       $('#First-Name #Last-Name, #Email-4').on('input change', updateSubmitButtonState);
 
     // Function to handle button click and initiate event
-    function handleButtonClick() {
-      event.preventDefault(); // Useful in preventing race conditions if your multipurpose button is a form submission button.
+    // function handleButtonClick() {
+    //   event.preventDefault(); // Useful in preventing race conditions if your multipurpose button is a form submission button.
 
-      // These superficial short circuit checks for email and acceptance go along with our oversimplified example, your implementation is likely more sophisticated.
-      const counterpartyIdentification = document.getElementById('Email-4');
-      if (!counterpartyIdentification?.value || counterpartyIdentification?.value == '') return alert('Please enter your email to continue.');
+    //   // These superficial short circuit checks for email and acceptance go along with our oversimplified example, your implementation is likely more sophisticated.
+    //   const counterpartyIdentification = document.getElementById('Email-4');
+    //   if (!counterpartyIdentification?.value || counterpartyIdentification?.value == '') return alert('Please enter your email to continue.');
 
-      const checkbox = document.querySelector('input.ps-checkbox[type="checkbox"]');
-      if (!checkbox?.checked) return alert('Sorry, you must agree to continue.');
+    //   const checkbox = document.querySelector('input.ps-checkbox[type="checkbox"]');
+    //   if (!checkbox?.checked) return alert('Sorry, you must agree to continue.');
 
-      event.currentTarget.disabled = true;  // Superficially prevent duplicate sign-ins.
+    //   event.currentTarget.disabled = true;  // Superficially prevent duplicate sign-ins.
 
-      _ps(clickwrapGroupKey + ':send', 'agreed', {
-        disable_sending: false,
-        event_callback: function (err, eventType, group, request) {
-          if (err) {
-            console.log
-            // Something went wrong with sending the agreed event.
-            // alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
-          }
+    //   _ps(clickwrapGroupKey + ':send', 'agreed', {
+    //     disable_sending: false,
+    //     event_callback: function (err, eventType, group, request) {
+    //       if (err) {
+    //         console.log
+    //         // Something went wrong with sending the agreed event.
+    //         // alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
+    //       }
 
-          // alert("You're all signed in!");
-          // window.location.reload(); // Superficially reload to reset the example.
-          // window.location.href = 'https://www.sofi.com';
-        }
-      });
-      // Use your actual _ps function and arguments here
-      //
+    //       // alert("You're all signed in!");
+    //       // window.location.reload(); // Superficially reload to reset the example.
+    //       // window.location.href = 'https://www.sofi.com';
+    //     }
+    //   });
+    //   // Use your actual _ps function and arguments here
+    //   //
 
-      // _ps("embedded-ln3ir72rl:send", "agreed", {
-      //   // The event_callback function will be invoked once the "send" is complete.
-      //   event_callback: function (err, eventType, clickwrapGroup, payload) {
-      //     if (err) {
-      //       // The send encountered an error. 
-      //       console.log(err);
-      //     } else {
-      //       // The send is complete and acceptance was captured successfully.
-      //       // Redirect to visa.com after a successful event
-      //     }
-      //   }
-      // });
-    }
+    //   // _ps("embedded-ln3ir72rl:send", "agreed", {
+    //   //   // The event_callback function will be invoked once the "send" is complete.
+    //   //   event_callback: function (err, eventType, clickwrapGroup, payload) {
+    //   //     if (err) {
+    //   //       // The send encountered an error. 
+    //   //       console.log(err);
+    //   //     } else {
+    //   //       // The send is complete and acceptance was captured successfully.
+    //   //       // Redirect to visa.com after a successful event
+    //   //     }
+    //   //   }
+    //   // });
+    // }
     
     _ps('set', 'snapshot_location', 'location-krp8y6if2');
 
 
 
     // Bind the function to the 'click' event of the button
-    $('#submit').on('click', handleButtonClick);
+    // $('#submit').on('click', handleButtonClick);
     });
   </script>
 </body>
