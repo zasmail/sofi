@@ -49,18 +49,47 @@
   <div class="section-standard hero">
     <div class="w-layout-blockcontainer continer-body w-container">
       <div class="div-standard left-line">
-        <h5 class="heading-1 centre _700w">View your rate in 1 minute</h5>
-        <p class="paragraph subhead centre _800">Viewing your rate won&#x27;t affect your credit score<br></p>
+        <h5 class="heading-1 centre _700w">Accept your loan</h5>
+        <!-- <p class="paragraph subhead centre _800">Viewing your rate won&#x27;t affect your credit score<br></p> -->
         <div class="w-form">
           <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" data-wf-page-id="6524294b40cd2ad59ef82e54" data-wf-element-id="517cea38-2e5f-2918-677d-f4c985800b28">
             <div class="div-block-33">
-              <div><input type="text" class="text-field-3 w-input" maxlength="256" name="First-Name" data-name="First Name" placeholder="First Name" id="First-Name" required=""></div>
-              <div><input type="text" class="text-field-2 w-input" maxlength="256" name="Last-Name" data-name="Last Name" placeholder="Last Name" id="Last-Name" required=""></div>
+              <div><input type="text" class="text-field-3 w-input" maxlength="256" name="First-Name" data-name="First Name" placeholder="First Name" id="First-Name" value="Carlita" readonly></div>
+              <div><input type="text" class="text-field-2 w-input" maxlength="256" name="Last-Name" data-name="Last Name" placeholder="Last Name" id="Last-Name" value="Stone" readonly></div>
             </div>
-            <input type="text" class="text-field-4 w-input" maxlength="256" name="State" data-name="State" placeholder="State" id="State" required="">
-            <input type="email" class="text-field-5 w-input" maxlength="256" name="Email-4" data-name="Email 4" placeholder="Email" id="Email-4" required="">
+            <input type="text" class="text-field-4 w-input" maxlength="256" name="State" data-name="State" placeholder="State" id="State" value="CA" readonly>
+            <input type="email" class="text-field-5 w-input" maxlength="256" name="Email-4" data-name="Email 4" placeholder="Email" id="Email-4" value="carlitacountersigner@gmail.com" readonly>
+            
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="borrower_address" data-name="borrower_address" id="borrower_address" value="1121 Main St, SF CA 11213" >
+
+            <label for="readonlyField">Annual Percentage Rate</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="annual_perc_rate" data-name="annual_perc_rate" id="annual_perc_rate" value="11.937%" readonly>
+           
+            <label for="readonlyField">Finance Charge</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="finance_charge" data-name="finance_charge" id="finance_charge" value="$14,232.88" readonly>
+            
+            <label for="readonlyField">Amount Financed</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="amount_financed" data-name="amount_financed" id="amount_financed" value="$35,000.00" readonly>
+
+            <label for="readonlyField">Total of Payments</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="total_of_payments" data-name="total_of_payments" id="total_of_payments" value="$49,232.88" readonly>
+            
+            <label for="readonlyField">Number of Payments</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="number_of_payments" data-name="number_of_payments" id="number_of_payments" value="71" readonly>
+         
+            <label for="readonlyField">Amount of Payments</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="amount_of_payments" data-name="amount_of_payments" id="amount_of_payments" value="683.79" readonly>
+            
+            <label for="readonlyField">Start Date of Payments</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="start_date" data-name="start_date" id="start_date" value="10/10/2023" readonly>
+            
+            <label for="readonlyField">End Date of Payments</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="end_date" data-name="end_date" id="end_date" value="09/10/2029" readonly>
+
+
+
             <div id="iccw--clickwrap-container"></div>
-            <input type="submit" id="submit" value="View my rate" data-wait="Please wait..." class="submit-button w-button">
+            <input type="submit" id="submit" value="Let's go" data-wait="Please wait..." class="submit-button w-button">
           </form>
           <div class="w-form-done">
             <div>Thank you! Your submission has been received!</div>
@@ -84,7 +113,142 @@
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6524170ee04aa59a645aaf62" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <script>
+    (function (w, d, s, c, f, n, t, g, a, b, l) { w["PactSafeObject"] = n; w[n] = w[n] || function () { (w[n].q = w[n].q || []).push(arguments) }, w[n].on = function () { (w[n].e = w[n].e || []).push(arguments) }, w[n].once = function () { (w[n].eo = w[n].eo || []).push(arguments) }, w[n].off = function () { (w[n].o = w[n].o || []).push(arguments) }, w[n].t = 1 * new Date(), w[n].l = 0; a = d.createElement(s); b = d.getElementsByTagName(s)[0]; a.async = 1; a.src = c; a.onload = a.onreadystatechange = function () { w[n].l = 1 }; a.onerror = a.onabort = function () { w[n].l = 0 }; b.parentNode.insertBefore(a, b); setTimeout(function () { if (!w[n].l && !w[n].loaded) { w[n].error = 1; a = d.createElement(s); a.async = 1; a.src = f; a.onload = a.onreadystatechange = function () { w[n].l = 1 }; a.onerror = a.onabort = function () { w[n].l = 0 }; b.parentNode.insertBefore(a, b); l = function (u, e) { try { e = d.createElement("img"); e.src = "https://d3r8bdci515tjv.cloudfront.net/error.gif?t=" + w[n].t + "&u=" + encodeURIComponent(u); d.getElementsByTagName("body")[0].appendChild(e) } catch (x) { } }; l(c); setTimeout(function () { if (!w[n].l && !w[n].loaded) { w[n].error = 1; if (g && "function" == typeof g) { g.call(this); } l(f) } }, t) } }, t) })(window, document, "script", "https://vault.demo.pactsafe.io/ps.min.js", "https://d21iwaz8hush8a.cloudfront.net/ps.min.js", "_ps", 5000, function () { window.console && console.error && console.error("Unable to load Ironclad Clickwrap Library.") });
     
+    // Wait until the DOM is ready (your implementation may not need to wait for the DOM to be ready).
+    document.addEventListener('DOMContentLoaded', function () {
+
+
+      
+      // _ps('load', clickwrapGroupKey, {  // Tell the library to use a specific Clickwrap Group.
+      //   render_data: dynamicData,  // This will load and display (if configured to display—embedded style for example) the resulting dynamic contract bodies.
+      // })
+
+
+      // Locate your multi-purpose button and add an event listener.
+      document.getElementById(idOfMultipurposeButton).addEventListener('click', function (event) {
+        event.preventDefault(); // Useful in preventing race conditions if your multipurpose button is a form submission button.
+
+        // These superficial short circuit checks for email and acceptance go along with our oversimplified example, your implementation is likely more sophisticated.
+        const counterpartyIdentification = document.getElementById(counterpartyIdentificationInputId);
+        if (!counterpartyIdentification?.value || counterpartyIdentification?.value == '') return alert('Please enter your email to continue.');
+
+        const checkbox = document.querySelector('input.ps-checkbox[type="checkbox"]');
+        if (!checkbox?.checked) return alert('Sorry, you must agree to continue.');
+
+        event.currentTarget.disabled = true;  // Superficially prevent duplicate sign-ins.
+
+        _ps(clickwrapGroupKey + ':send', 'agreed', {
+          disable_sending: false,
+          event_callback: function (err, eventType, group, request) {
+            if (err) {
+              // Something went wrong with sending the agreed event.
+              alert('Uh oh, something went wrong. Please try submitting again.');  // Alert the user.
+            }
+
+            alert("You're all signed in!");
+            window.location.reload(); // Superficially reload to reset the example.
+          }
+        });
+      });
+
+    }, false);
+    // Load the JavaScript library, Site Access ID, and Clickwrap Group key.
+
+    const signerId = "zo@asmail.me";  // Your identifying information will likely be found elsewhere.
+    // This set call will make sure subsequent actions include the correct counterparty identifying information.
+    const siteAccessId = '862091ef-9eaf-425c-a09f-3a5ffdfa3efa';
+    const clickwrapGroupKey = 'embedded-testgroup2';
+
+    
+    // Remember, we've already disabled automating sending.
+    const clickwrapContainerId = 'iccw--clickwrap-container';
+    const counterpartyIdentificationInputId = 'Email-4';
+    const idOfMultipurposeButton = 'submit';  // This assumes the `id` of your html element representing your multipurpose button is "signin-btn". Your actual implementation will likely differ.
+  
+    _ps('create', siteAccessId, {
+      dynamic: true,  // Configure the library to handle the Clickwrap Group with dynamic data.
+      container_selector: clickwrapContainerId  
+    });
+  
+    const dynamicData = {
+      date: $("#start_date").val(),
+      borrower_name: $("#First-Name").val() + " " + $("#Last-Name").val(),
+      borrower_address: $("#borrower_address").val(),
+      annual_perc_rate: $("#annual_perc_rate").val(),
+      finance_charge: $("#finance_charge").val(),
+      amount_financed: $("#amount_financed").val(),
+      total_of_payments: $("#total_of_payments").val(),
+      number_of_payments: $("#number_of_payments").val(),
+      amount_of_payments: $("#amount_of_payments").val(),
+      start_date: $("#start_date").val(),
+      start_date: $("#end_date").val()
+    };
+
+    _ps('load', clickwrapGroupKey, {
+      container_selector: clickwrapContainerId,
+      signer_id_selector: counterpartyIdentificationInputId,
+    });
+    
+    _ps('set', 'signer_id', signerId);
+
+    // _ps('load', clickwrapGroupKey, {  // Tell the library to use a specific Clickwrap Group.
+    //   container_selector: clickwrapContainerId,
+    // });
+    _ps.on("initialized", function () {
+      // Setting a fake unique ID as the signer id on the Site Object.
+      debugger
+      _ps(clickwrapGroupKey + ":retrieveHTML", dynamicData);
+
+    });
+
+    
+    _ps.on("set:contract_html", function (html, group) {
+        // Retrieved was called from retrieving HTML.
+        group.set('display_all', true);
+        group.displayRequired();
+      });
+
+    _ps('set', 'snapshot_location', 'location-07pxri0fu');
+    // Load the JavaScript library, Site Access ID, and Clickwrap Group key.
+
+
+
+
+     $(document).ready(function () {
+        // Get the input field by its ID
+        var borrowerAddressInput = $('#borrower_address');
+
+        // Store the initial value
+        var initialValue = borrowerAddressInput.val();
+
+        // Listen for input changes
+        borrowerAddressInput.on('input', function () {
+          // Check if the value has changed
+          if (borrowerAddressInput.val() !== initialValue) {
+            // Update logic here
+            console.log('Value changed:', borrowerAddressInput.val());
+            const dynamicData = {
+              date: $("#start_date").val(),
+              borrower_name: $("#First-Name").val() + " " + $("#Last-Name").val(),
+              borrower_address: $("#borrower_address").val(),
+              annual_perc_rate: $("#annual_perc_rate").val(),
+              finance_charge: $("#finance_charge").val(),
+              amount_financed: $("#amount_financed").val(),
+              total_of_payments: $("#total_of_payments").val(),
+              number_of_payments: $("#number_of_payments").val(),
+              amount_of_payments: $("#amount_of_payments").val(),
+              start_date: $("#start_date").val(),
+              start_date: $("#end_date").val()
+            };
+            _ps(clickwrapGroupKey + ":retrieveHTML", dynamicData);
+
+            // Optionally, you can update the initialValue
+            initialValue = borrowerAddressInput.val();
+          }
+        });
+      });
+  
   </script>
 </body>
 </html>
