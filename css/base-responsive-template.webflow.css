@@ -87,8 +87,6 @@ a {
 }
 
 .section-standard.hero {
-  /* height: 100vh;
-  max-height: 650px; */
   align-items: center;
   padding-top: 150px;
   display: flex;
