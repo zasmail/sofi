@@ -766,8 +766,8 @@ a {
 }
 
 .brown-column {
-  height: 100vh;
-  max-height: 600px;
+  /* height: 100vh;
+  max-height: 600px; */
   min-height: 100px;
   background-color: var(--snow-brown);
   flex: 1;
@@ -1183,8 +1183,8 @@ a {
 
 .featured-link {
   width: 100vw;
-  height: 100vh;
-  max-height: 600px;
+  /* height: 100vh;
+  max-height: 600px; */
   max-width: 550px;
   min-height: 0;
   background-color: var(--white);
