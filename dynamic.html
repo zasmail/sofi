@@ -86,6 +86,9 @@
             <label for="readonlyField">End Date of Payments</label>
             <input type="text" class="text-field-5 w-input" maxlength="256" name="end_date" data-name="end_date" id="end_date" value="09/10/2029" readonly>
 
+            <label for="readonlyField">Signature</label>
+            <input type="text" class="text-field-5 w-input" maxlength="256" name="signature" data-name="signature" id="signature">
+
 
 
             <div id="iccw--clickwrap-container"></div>
@@ -219,6 +222,7 @@
      $(document).ready(function () {
         // Get the input field by its ID
         var borrowerAddressInput = $('#borrower_address');
+        var signatureInput = $('#signature');
 
         // Store the initial value
         var initialValue = borrowerAddressInput.val();
@@ -239,6 +243,7 @@
               total_of_payments: $("#total_of_payments").val(),
               number_of_payments: $("#number_of_payments").val(),
               amount_of_payments: $("#amount_of_payments").val(),
+              signature: $("#signature").val(),
               start_date: $("#start_date").val(),
               start_date: $("#end_date").val()
             };
@@ -248,6 +253,33 @@
             initialValue = borrowerAddressInput.val();
           }
         });
+
+        signatureInput.on('input', function () {
+          // Check if the value has changed
+          if (signatureInput.val() !== initialValue) {
+            // Update logic here
+            console.log('Value changed:', borrowerAddressInput.val());
+            const dynamicData = {
+              date: $("#start_date").val(),
+              borrower_name: $("#First-Name").val() + " " + $("#Last-Name").val(),
+              borrower_address: $("#borrower_address").val(),
+              annual_perc_rate: $("#annual_perc_rate").val(),
+              finance_charge: $("#finance_charge").val(),
+              amount_financed: $("#amount_financed").val(),
+              total_of_payments: $("#total_of_payments").val(),
+              number_of_payments: $("#number_of_payments").val(),
+              amount_of_payments: $("#amount_of_payments").val(),
+              signature: $("#signature").val(),
+              start_date: $("#start_date").val(),
+              start_date: $("#end_date").val()
+            };
+            _ps(clickwrapGroupKey + ":retrieveHTML", dynamicData);
+
+            // Optionally, you can update the initialValue
+            initialValue = borrowerAddressInput.val();
+          }
+        });
+
       });
   
   </script>
